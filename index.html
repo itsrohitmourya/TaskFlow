@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="mainNav">
+            <div class="logo">
+                <a href="#home">
+                    <img src="assets/logo.png" alt="logo">
+                    <span>TaskFlow</span>
+                </a>
+            </div>
+            <div class="hamMenuBtn">
+                <input type="checkbox" name="menu" id="menu" hidden>
+                <label for="menu">
+                    <img src="assets/Hamburger_icon_white.svg" alt="Menu">
+                </label>
+            </div>
+            <ul class="navLinkCon">
+                <li><a data-link href="#home">home</a></li>
+                <li><a data-link href="#todo">Todo</a></li>
+                <li><a data-link href="#about">About</a></li>
+                <li><a data-link href="#contact">Contact</a></li>
+                <li><a data-link href="#login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="hamMenu">
+        <ul>
+            <li class="hamMenuLink active">
+                <a data-link href="#home">home</a>
+            </li>
+            <li class="hamMenuLink">
+                <a data-link href="#todo">Todo</a>
+            </li>
+            <li class="hamMenuLink">
+                <a data-link href="#about">About</a>
+            </li>
+            <li class="hamMenuLink">
+                <a data-link href="#contact">Contact</a>
+            </li>
+            <li class="hamMenuLink">
+                <a data-link href="#login">Login</a>
+            </li>
+        </ul>
+    </div>
+    <main id="content"></main>
+    <footer>
+        <section class="footNav">
+                <a href="#home">
+                    <img src="assets/logo.png" alt="logo">
+                    <span>TaskFlow</span>
+                </a>
+        </section>
+        <section class="footBottom">
+            <span>© 2025 TaskFlow. All Rights</span>
+        </section>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
