@@ -1,1 +1,42 @@
-<h1>this is todo page</h1>
+<section class="todoCon">
+    <h1>TaskFlow</h1>
+    <section class="todoFormCon">
+        <form id="todoForm">
+            <input type="text" maxlength="30" required autofocus id="todoInput" placeholder="Add a new task...">
+            <div class="custom-select">
+                <div class="select-trigger">
+                    <span class="selected-option">Low</span>
+                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M6 9l6 6 6-6" />
+                    </svg>
+                </div>
+                <ul class="select-options">
+                    <li data-value="Low" class="active">Low</li>
+                    <li data-value="Medium">Medium</li>
+                    <li data-value="High">High</li>
+                </ul>
+            </div>
+
+            <button id="submitBtn" type="submit">Add</button>
+        </form>
+    </section>
+    <section class="todoCardsCon">
+        <div class="penCon">
+            <h2>pending todo's :</h2>
+            <ul class="penTodoList">
+            </ul>
+            <div class="penNoTodoMsg">
+                No Pending Todo's Available
+            </div>
+        </div>
+        <div class="comCon">
+            <h2>completed todo's :</h2>
+            <ul class="comTodoList">
+            </ul>
+            <div class="comNoTodoMsg">
+                No Completed Todo's Available
+            </div>
+        </div>
+    </section>
+</section>
