@@ -127,7 +127,7 @@ function handleTodoChange(e) {
     if (event.key === "Enter") {
       finishEdit();
     } else if (event.key === "Escape") {
-      input.value = oldValue; // restore old value
+      input.value = oldValue; 
       finishEdit();
     }
   };

@@ -23,7 +23,6 @@ function createObserver(element, className, removeBool, thresholdValue) {
   }
 }
 const heroCon = document.querySelector(".heroCon") || undefined;
-console.log(heroCon);
 if (heroCon) {
   createObserver(heroCon, "heroConAnime", false, 1);
 }

@@ -13,7 +13,7 @@ img {
   width: auto;
 }
 header {
-  height: min(8vh, 100px);
+  height: min(8vh, 80px);
   width: 100%;
   overflow: hidden;
   z-index: 1000;
@@ -78,6 +78,7 @@ header {
   width: 100%;
   transform: translateY(-100%);
   transition: transform 0.8s ease-in-out;
+  padding-top: 2em;
 }
 .hamMenu > ul {
   list-style: none;
@@ -112,16 +113,16 @@ header {
   font-weight: 400;
 }
 header:has(.hamMenuBtn > input:checked) ~ .hamMenu {
-  transform: translateY(26.5%);
+  transform: translateY(18%);
 }
 /* home page style */
 .heroSec {
   height: 92vh;
   width: 100%;
-   background-color: #000000;
+  background-color: #000000;
   opacity: 0.9;
   background-image: radial-gradient(#444cf7 1.1px, transparent 1.1px),
-  radial-gradient(#444cf7 1.1px, #000000 1.1px);
+    radial-gradient(#444cf7 1.1px, #000000 1.1px);
   background-size: 44px 44px;
   background-position: 0 0, 22px 22px;
   display: flex;
@@ -189,12 +190,16 @@ header:has(.hamMenuBtn > input:checked) ~ .hamMenu {
 .aboutSec {
   min-height: 92vh;
   padding: 2em;
+  background-image: radial-gradient(#444cf7 1.1px, transparent 1.1px),
+    radial-gradient(#444cf7 1.1px, #000000 1.1px);
+  background-size: 44px 44px;
+  background-position: 0 0, 22px 22px;
 }
 .about-container {
   height: max-content;
   max-width: 800px;
   margin: auto;
-  background: #f1f1f1;
+  background-color: #050f149d;
   padding: 4em 2em 2em 2em;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -206,7 +211,7 @@ header:has(.hamMenuBtn > input:checked) ~ .hamMenu {
 }
 .about-container > h1,
 h2 {
-  color: #333;
+  color: white;
 }
 .heading {
   display: flex;
@@ -217,7 +222,7 @@ h2 {
   gap: 0.5em;
 }
 .heading > * {
-  margin: 0;
+  color: white;
 }
 .about-content {
   height: auto;
@@ -233,6 +238,7 @@ h2 {
 .about-content p {
   line-height: 1.2;
   font-size: clamp(14px, 6vw, 20px);
+  color: white;
 }
 .about-content > ul {
   list-style: none;
@@ -242,6 +248,7 @@ h2 {
   flex-direction: column;
   gap: 0.5em;
   font-size: clamp(14px, 6vw, 20px);
+  color: white;
 }
 .features {
   height: auto;
@@ -268,8 +275,17 @@ h2 {
   text-align: center;
 }
 /* contact page style */
-.contact-container {
+.contactSec {
   min-height: 92vh;
+  background-color: #000000;
+  opacity: 0.9;
+  background-image: radial-gradient(#444cf7 1.1px, transparent 1.1px),
+    radial-gradient(#444cf7 1.1px, #000000 1.1px);
+  background-size: 44px 44px;
+  background-position: 0 0, 22px 22px;
+}
+.contact-container {
+  height: max-content;
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
@@ -277,43 +293,53 @@ h2 {
 .contact-container > h1 {
   font-size: clamp(14px, 6vw, 32px);
   color: orange;
+  margin-bottom: 20px;
+  background-color: #050f1479;
+  display: inline-block;
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 .contact-info {
-  margin: 2rem 0;
+  border-radius: 20px;
+  padding: 1em 1em;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  background-color: #050f1479;
 }
 .contact-info > p {
+  color: white;
   font-size: clamp(14px, 6vw, 18px);
 }
 .contact-info > h2 {
+  color: white;
   font-size: clamp(14px, 6vw, 32px);
 }
 .contact-info > h3 {
+  color: white;
   font-size: clamp(14px, 6vw, 20px);
 }
 .contact-form {
-  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  background-color: #050f1479;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(20, 24, 40, 0.06);
   max-width: 800px;
   margin: 1.5rem auto;
-  padding: 1em;
+  padding: 1.5em 1em;
 }
 
 .contact-form h2 {
   margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: clamp(18px, 6vw, 24px);
-  color: #111827;
+  font-size: clamp(14px, 6vw, 24px);
+  color: white;
+  margin-bottom: 1em;
 }
 
 .contact-form form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 @media (max-width: 640px) {
@@ -334,7 +360,7 @@ h2 {
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.08s;
   box-shadow: inset 0 -1px 0 rgba(16, 24, 40, 0.02);
   outline: none;
-  font-size: clamp(12px, 6vw, 18px);
+  font-size: clamp(12px, 6vw, 16px);
 }
 
 #contactForm > textarea {
@@ -364,19 +390,17 @@ h2 {
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s;
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.12);
-  height: min(8vh, 80px);
-  font-size: clamp(14px, 6vw, 18px);
+  height: min(8vh, 60px);
+  font-size: clamp(12px, 6vw, 18px);
+  margin-top: 0.75em;
 }
 
 #contactForm > button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.14);
 }
 
 #contactForm > button[type="submit"]:active {
   transform: translateY(0);
-  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.1);
 }
 
 .status-msg {
@@ -420,7 +444,7 @@ h2 {
   background-color: #000000;
   opacity: 0.9;
   background-image: radial-gradient(#444cf7 1.1px, transparent 1.1px),
-  radial-gradient(#444cf7 1.1px, #000000 1.1px);
+    radial-gradient(#444cf7 1.1px, #000000 1.1px);
   background-size: 44px 44px;
   background-position: 0 0, 22px 22px;
 }
@@ -428,12 +452,15 @@ h2 {
   background: white;
   padding: 2em;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-  width: min(100%, 600px);
+  width: min(100%, 500px);
   border-radius: 1em;
+  overflow: hidden;
 }
 .login-container > h1 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: clamp(12px, 8vw, 36px);
+  overflow: hidden;
 }
 .login-container > form > input[type="text"],
 .login-container > form > input[type="password"] {
@@ -443,6 +470,7 @@ h2 {
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 10px;
+  font-size: clamp(12px, 4vw, 18px);
 }
 .login-container > form > button {
   width: 100%;
@@ -454,6 +482,7 @@ h2 {
   font-size: 16px;
   cursor: pointer;
   height: min(7vh, 100px);
+  font-size: clamp(12px, 6vw, 22px);
 }
 .login-container > form > button:hover {
   background-color: #4cae4c;
@@ -468,7 +497,7 @@ h2 {
   background-color: #000000;
   opacity: 0.9;
   background-image: radial-gradient(#444cf7 1.1px, transparent 1.1px),
-  radial-gradient(#444cf7 1.1px, #000000 1.1px);
+    radial-gradient(#444cf7 1.1px, #000000 1.1px);
   background-size: 44px 44px;
   background-position: 0 0, 22px 22px;
   color: white;
@@ -482,6 +511,7 @@ h2 {
   color: white;
   text-align: center;
   margin-bottom: 1em;
+  font-size: clamp(14px, 12vw, 36px);
 }
 
 .todoFormCon {
@@ -499,12 +529,15 @@ h2 {
   height: auto;
   width: 100%;
 }
+#todoForm > *{
+  aspect-ratio: 16/9;
+}
 
 #todoForm > input[type="text"] {
   border: none;
   outline: none;
   flex: 8 0 100px;
-  height: 7vh;
+  height: min(7vh, 70px);
   max-width: 100%;
   border-radius: 10px;
   font-size: clamp(14px, 6vw, 18px);
@@ -513,9 +546,12 @@ h2 {
 
 .custom-select {
   position: relative;
-  width: 140px;
+  flex: 1 0 100px;
+  max-width: 100%;
   font-family: inherit;
   user-select: none;
+  height: min(7.4vh, 80px);
+  margin-top: 5px;
 }
 
 .select-trigger {
@@ -533,7 +569,7 @@ h2 {
   align-items: center;
   cursor: pointer;
   transition: 0.3s ease;
-  height: 7vh;
+  height: min(7vh, 80px);
 }
 
 .select-trigger:hover {
@@ -559,7 +595,6 @@ h2 {
   z-index: 10;
 }
 
-
 .select-options li {
   padding: 0.6em 1em;
   font-size: 1rem;
@@ -578,26 +613,26 @@ h2 {
   font-weight: 600;
 }
 
-
 .custom-select.open .arrow {
   transform: rotate(180deg);
   transition: 0.2s;
 }
 
-
 .custom-select.open .select-options {
   display: flex;
 }
 
-
 #todoForm > #submitBtn {
   flex: 1 0 100px;
-  height: 7vh;
+  max-width: 100%;
+  margin-top: 5px;
+  height: min(7vh, 75px);
   border-radius: 10px;
   font-size: clamp(14px, 6vw, 18px);
   border: none;
   background: linear-gradient(135deg, #a855f7, #ec4899);
   color: white;
+  overflow: hidden;
 }
 #submitBtn:active {
   background: linear-gradient(135deg, #ec4899, #a855f7);
@@ -629,6 +664,7 @@ h2 {
   justify-content: flex-start;
   align-items: center;
   gap: 1em;
+  overflow: hidden;
 }
 
 .comCon {
@@ -645,6 +681,7 @@ h2 {
   justify-content: flex-start;
   align-items: center;
   gap: 1em;
+  overflow: hidden;
 }
 
 .penCon h2,
@@ -653,6 +690,7 @@ h2 {
   font-size: clamp(12px, 6vw, 24px);
   text-align: start;
   letter-spacing: 0.1em;
+  overflow: hidden;
 }
 
 .penCon > h2 {
@@ -713,10 +751,9 @@ h2 {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
-.todoCard > *{
+.todoCard > * {
   height: min(5vh, 80px);
 }
-
 
 .todoName {
   flex: 1 0 auto;
@@ -731,12 +768,11 @@ h2 {
   text-align: start;
   border-radius: 10px;
 }
-.todoName.active{
-   border: 1px solid #00ff99;
+.todoName.active {
+  border: 1px solid #00ff99;
   background: rgba(255, 255, 255, 0.1);
   outline: none;
 }
-
 
 .todoCard span {
   flex: 0 0 50px;
@@ -751,26 +787,24 @@ h2 {
   align-items: center;
   border-radius: 10px;
 }
-.todoCard span[data-level="High"]{
+.todoCard span[data-level="High"] {
   background-color: rgb(255, 52, 52);
   color: white;
 }
-.todoCard span[data-level="Low"]{
+.todoCard span[data-level="Low"] {
   background-color: rgb(20, 172, 66);
   color: white;
 }
-.todoCard span[data-level="Medium"]{
+.todoCard span[data-level="Medium"] {
   background-color: rgb(224, 213, 54);
   color: black;
-
 }
-
 
 .todoCheck {
   appearance: none;
-  height:clamp(25px, 4vw, 30px);         
+  height: clamp(25px, 4vw, 30px);
   width: clamp(25px, 4vw, 30px);
-  border-radius: 4px;   
+  border-radius: 4px;
   border: 2px solid #00ff99;
   background: transparent;
   cursor: pointer;
@@ -792,7 +826,6 @@ h2 {
   font-size: 0.9rem;
 }
 
-
 .todoCard > button {
   background: transparent;
   height: max-content;
@@ -802,7 +835,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition:  transform 0.2s ease;
+  transition: transform 0.2s ease;
   border: none;
 }
 
@@ -816,7 +849,8 @@ h2 {
   filter: drop-shadow(0 0 3px rgba(255, 77, 77, 0.5));
 }
 
-.penNoTodoMsg, .comNoTodoMsg{
+.penNoTodoMsg,
+.comNoTodoMsg {
   height: 100%;
   width: 100%;
   justify-content: center;
@@ -825,9 +859,15 @@ h2 {
   text-transform: capitalize;
   font-size: clamp(14px, 6vw, 20px);
   display: none;
+  text-align: center;
 }
-.penCon > .active, .comCon > .active{
+.penCon > .active,
+.comCon > .active {
   display: flex;
+}
+.todoCard:has(.todoCheck:checked) .todoName {
+  text-decoration: line-through;
+  color: #bbbbbb;
 }
 
 /* main footer style */
@@ -866,3 +906,17 @@ footer {
   font-size: clamp(12px, 6vw, 18px);
   color: white;
 }
+/* 404 page style */
+#Sec404 {
+  min-height: 92vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("assets/404page.jpg");
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center;
+  background-color: #111a43;
+}
+
