@@ -115,6 +115,76 @@ header {
 header:has(.hamMenuBtn > input:checked) ~ .hamMenu {
   transform: translateY(18%);
 }
+#userCard {
+  height: min(7vh, 60px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 2em;
+  gap: 0.75em;
+  position: relative;
+}
+#userCard > img {
+  height: clamp(20px, 12vw, 35px);
+  width: auto;
+}
+.userArrow {
+  color: #fff;
+  height: clamp(20px, 6vw, 26px);
+  width: auto;
+  transition: all 0.3s ease-in-out;
+}
+#userCard.open > .userArrow {
+  transform: rotate(180deg);
+}
+
+#userMenu {
+  border-radius: 10px;
+  position: absolute;
+  top: 120%;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  width: max-content;
+  max-width: 100%;
+  color: white;
+  font-size: clamp(14px, 6vw, 18px);
+}
+#userMenu > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  text-transform: capitalize;
+  font-size: clamp(14px, 6vw, 18px);
+  gap: 0.5em;
+  transition: all 0.3s ease-in-out;
+  background-color: red;
+  border: none;
+  outline: none;
+  color: white;
+}
+#userMenu > button:active {
+  transform: scale(0.8);
+}
+#userMenu > button:hover img {
+  transform: translateX(20%);
+}
+#userMenu > button > img {
+  transition: all 0.3s ease-in-out;
+  height: clamp(20px, 6vw, 20px);
+}
+.hidden {
+  display: none !important;
+}
 /* home page style */
 .heroSec {
   height: 92vh;
@@ -402,39 +472,9 @@ h2 {
 #contactForm > button[type="submit"]:active {
   transform: translateY(0);
 }
-
-.status-msg {
-  margin-top: 0.8rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.status-msg.success {
-  color: #16a34a;
-}
-
-.status-msg.error {
-  color: #dc2626;
-}
-
-#contactForm > button.loading {
-  opacity: 0.7;
-  pointer-events: none;
-  position: relative;
-}
-
-#contactForm > button.loading::after {
-  content: "⏳ Sending...";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 500;
-  color: white;
-}
 /* login page style */
-.loginSec {
+.loginSec,
+.regSec {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -448,22 +488,37 @@ h2 {
   background-size: 44px 44px;
   background-position: 0 0, 22px 22px;
 }
-.login-container {
+.login-container,
+.reg-container {
+  transform: scale(0);
   background: white;
   padding: 2em;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   width: min(100%, 500px);
   border-radius: 1em;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+  transition: all 0.3s ease-in-out;
 }
-.login-container > h1 {
+.login-container.active,
+.reg-container.active {
+  transform: scale(1);
+}
+.login-container > h1,
+.reg-container > h1 {
   text-align: center;
-  margin-bottom: 20px;
   font-size: clamp(12px, 8vw, 36px);
   overflow: hidden;
 }
-.login-container > form > input[type="text"],
-.login-container > form > input[type="password"] {
+#logEmail,
+#logPass,
+#regEmail,
+#regPass,
+#regName {
   width: 100%;
   height: min(7vh, 100px);
   padding: 10px;
@@ -472,7 +527,32 @@ h2 {
   border-radius: 10px;
   font-size: clamp(12px, 4vw, 18px);
 }
-.login-container > form > button {
+.login-container > form > div,
+.reg-container > form > div {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  height: max-content;
+}
+.iconToggleCon {
+  position: absolute;
+  right: 2%;
+  top: 16%;
+  height: 70%;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0em 0.3em;
+}
+.iconToggleCon > img{
+  height: clamp(25px, 6vw, 35px);
+}
+.login-container > form {
+  width: 100%;
+}
+.login-container > form > button,
+.reg-container > form > button {
   width: 100%;
   padding: 10px;
   background-color: #5cb85c;
@@ -483,10 +563,87 @@ h2 {
   cursor: pointer;
   height: min(7vh, 100px);
   font-size: clamp(12px, 6vw, 22px);
+  transition: all 0.3s ease-in-out;
 }
-.login-container > form > button:hover {
+.login-container > form > button:hover,
+.reg-container > form > button:hover {
   background-color: #4cae4c;
 }
+.login-container > form > button:active,
+.reg-container > form > button:active {
+  transform: scale(0.8);
+}
+.login-container > span,
+.reg-container > span {
+  height: max-content;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(14px, 6vw, 18px);
+}
+.login-container > span > a,
+.reg-container > span > a {
+  text-decoration: none;  
+  color: #0077ff;
+}
+.login-container > span > a:hover,
+.reg-container > span > a:hover {
+  color: #7c3aed;
+  transition: all 0.18s ease;
+  font-weight: 600;
+}
+/* toast box style */
+#toastContainer {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.toast {
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #fff;
+  animation: slideIn 0.3s ease forwards, fadeOut 0.3s ease 2.5s forwards;
+  min-width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #e63946;
+}
+
+.toast.warning {
+  background: #ff9800;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
 /* todo page style */
 .todoCon {
   background: white;
@@ -529,7 +686,7 @@ h2 {
   height: auto;
   width: 100%;
 }
-#todoForm > *{
+#todoForm > * {
   aspect-ratio: 16/9;
 }
 
@@ -915,8 +1072,7 @@ footer {
   align-items: center;
   background-image: url("assets/404page.jpg");
   background-repeat: no-repeat;
-  background-size:contain;
+  background-size: contain;
   background-position: center;
   background-color: #111a43;
 }
-

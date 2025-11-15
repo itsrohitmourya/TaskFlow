@@ -11,6 +11,7 @@
 
 <body>
     <header>
+
         <nav class="mainNav">
             <div class="logo">
                 <a href="#home">
@@ -47,8 +48,21 @@
             <li class="hamMenuLink">
                 <a data-link href="#contact">Contact</a>
             </li>
-            <li class="hamMenuLink">
+            <li class="hamMenuLink" id="login">
                 <a data-link href="#login">Login</a>
+            </li>
+            <li class="hamMenuLink" id="userCard">
+                <img src="assets/user.png" alt="user">
+                <svg class="userArrow" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="white" stroke-width="2" d="M6 9l6 6 6-6" />
+                    </svg>
+                <div id="userMenu" class="hidden">
+                    <span id="userName"></span>
+                    <button id="logoutBtn">Logout 
+                        <img src="assets/logout.png" alt="logout">
+                    </button>
+                </div>
             </li>
         </ul>
     </div>
@@ -64,6 +78,7 @@
             <span>© 2025 TaskFlow. All Rights</span>
         </section>
     </footer>
+    <div id="toastContainer"></div>
     <script src="script.js"></script>
 </body>
 
