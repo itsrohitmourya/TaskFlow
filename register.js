@@ -45,30 +45,39 @@ function createObserver(element, className, removeBool, thresholdValue) {
 createObserver(regContainer, 'active', false, 1)
 
 regForm.addEventListener('submit', async (e)=>{
-    e.preventDefault()
-    try {
-        const res = await fetch('https://taskflow-rfbk.onrender.com/users/register', {
-            method : 'POST',
-            headers :{
-                "content-Type" : "application/json"
-            },
-            body : JSON.stringify({
-                name : name.value,
-                email : email.value,
+  e.preventDefault()
+  try {
+    startLoading(true)
+    const res = await fetch('https://taskflow-rfbk.onrender.com/users/register', {
+      method : 'POST',
+      headers :{
+        "content-Type" : "application/json"
+      },
+      body : JSON.stringify({
+        name : name.value,
+        email : email.value,
                 password : password.value
             }),
             credentials : 'include'
         })
-
-        const data = await res.json()
-        if(res.status === 200 || res.ok){
+        setTimeout(async ()=>{
+          const data = await res.json()
+          if(res.status === 200 || res.ok){
+            startLoading(false)
             showToast(data.message, "success");
             window.location.hash = '#login'
-        }else{
+          }else{
+            startLoading(false)
             showToast(data.message, 'error')
-        }
+          }
+        }, '3000')
 
     } catch (error) {
+      setTimeout(()=>{
+        startLoading(false)
         showToast('Something went wrong', 'error')
+      }, '3000')
     }
 })
+
+

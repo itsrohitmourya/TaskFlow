@@ -79,9 +79,12 @@ window.addEventListener("hashchange", async () => {
 // check user auth
 let authUser = JSON.parse(localStorage.getItem("authUser") || null)
 async function authCheck() {
-  if(authUser) return true;
+  if(authUser){
+    userName.innerText = authUser.name
+    return true;
+  } 
   try {
-    const res = await fetch("http://localhost:3000/users/me", {
+    const res = await fetch("https://taskflow-rfbk.onrender.com/users/me", {
       method: "GET",
       credentials: "include",
     });
@@ -133,7 +136,7 @@ document.addEventListener("click", (e) => {
 
 logoutBtn.addEventListener("click", async (e) => {
   try {
-    const res = await fetch("http://localhost:3000/users/logout", {
+    const res = await fetch("https://taskflow-rfbk.onrender.com/users/logout", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -169,3 +172,16 @@ function updateUI(){
   }
 }
 updateUI()
+
+function startLoading(bool = false){
+  if(bool){
+    const img = document.createElement('img')
+    img.id = 'loading'
+    img.src = 'assets/load.png'
+    img.alt = 'loading'
+    subBtn.innerText = 'Loading'
+    subBtn.appendChild(img)
+  }else{
+    subBtn.innerText = 'Register'
+  }
+}

@@ -143,10 +143,10 @@ header:has(.hamMenuBtn > input:checked) ~ .hamMenu {
   position: absolute;
   top: 120%;
   padding: 1em;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background: #21202086;
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #ffffff33;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,8 +154,18 @@ header:has(.hamMenuBtn > input:checked) ~ .hamMenu {
   gap: 1em;
   width: max-content;
   max-width: 100%;
+}
+#userMenu > span{
   color: white;
+  background: #0f020290;
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0em;
+  border-radius: 10px;
   font-size: clamp(14px, 6vw, 18px);
+}
+#userMenu > span:hover{
+  color: yellow;
 }
 #userMenu > button {
   display: flex;
@@ -564,6 +574,10 @@ h2 {
   height: min(7vh, 100px);
   font-size: clamp(12px, 6vw, 22px);
   transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
 }
 .login-container > form > button:hover,
 .reg-container > form > button:hover {
@@ -590,6 +604,20 @@ h2 {
   color: #7c3aed;
   transition: all 0.18s ease;
   font-weight: 600;
+}
+
+#loading{
+  height: clamp(25px, 6vw, 30px);
+  transition: all 0.3s ease-in-out;
+  animation: loading 1s linear infinite;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
 }
 /* toast box style */
 #toastContainer {

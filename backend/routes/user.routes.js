@@ -10,4 +10,5 @@ router.get('/me', isLoggedIn, getMe)
 router.post('/logout', isLoggedIn, logoutUser)
 router.post('/forgot', forgotPassword)
 router.post('/reset/:token', resetPassword)
+router.post('/reset/:token', resetPassword)
 export default router

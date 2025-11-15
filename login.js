@@ -46,7 +46,8 @@ loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (e.isTrusted) {
     try {
-      const res = await fetch("https://taskflow-2wd2.onrender.com/users/login", {
+      startLoading(true)
+      const res = await fetch("https://taskflow-rfbk.onrender.com/users/login", {
         method: "POST",
         headers: {
           "content-Type": "application/json",
@@ -57,18 +58,22 @@ loginForm.addEventListener("submit", async (e) => {
         }),
         credentials: "include",
       });
-
-      const data = await res.json();
-      if (res.status === 200 || res.ok) {
-        showToast(data.message, "success");
-        window.location.hash = "#todo";
-      } else {
-        showToast(data.message, "error");
-      }
+      setTimeout(async()=>{
+        startLoading(false)
+        const data = await res.json();
+        if (res.status === 200 || res.ok) {
+          showToast(data.message, "success");
+          window.location.hash = "#todo";
+          authCheck()
+        } else {
+          showToast(data.message, "error");
+        }
+      }, '3000')
     } catch (error) {
-      showToast("Something went wrong", "error");
+      setTimeout(()=>{
+        startLoading(false)
+        showToast("Something went wrong", "error");
+      }, '3000')
     }
   }
 });
-
-// 
