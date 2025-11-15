@@ -153,6 +153,7 @@ logoutBtn.addEventListener("click", async (e) => {
       window.location.hash = "#login"
       authUser = null
       localStorage.removeItem('authUser')
+      localStorage.removeItem('todos')
       updateUI()
     } else {
       showToast(data.message, "error");
